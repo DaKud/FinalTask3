@@ -17,7 +17,7 @@ import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class BookingServiceTest {
-    private final String user = "Toto";
+    private final String user = "User-01";
     private final LocalDateTime from = LocalDateTime.of(2024, 1, 1, 0, 0, 0);
     private final LocalDateTime to = LocalDateTime.of(2024, 1, 2, 0, 0, 0);
 
