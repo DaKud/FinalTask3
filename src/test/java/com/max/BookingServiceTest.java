@@ -29,11 +29,11 @@ public class BookingServiceTest {
 
     @Test
     void successCreateBookTest() throws CantBookException {
-        logger.info("тест успешного создания записи запущен");
-        logger.debug("Создание заглушек для методов: createBook, checkTimeInBD");
+        logger.info("successful record creation test is running");
+        logger.debug("Creating method stubs: createBook, checkTimeInBD");
         Mockito.when(bookingService.createBook(user, from, to)).thenReturn(true);
         Mockito.when(bookingService.checkTimeInBD(from, to)).thenReturn(true);
-        logger.debug("Заглушки для методов: createBook, checkTimeInBD - созданы");
+        logger.debug("Method stubs: createBook, checkTimeInBD - have created");
 
         assertTrue(bookingService.book(user, from, to));
 
@@ -45,10 +45,10 @@ public class BookingServiceTest {
 
     @Test
     void failCreateBookTest() throws CantBookException {
-        logger.info("тест возврата Exception запущен");
-        logger.debug("Создание заглушки для метода: checkTimeInBD");
+        logger.info("Exception return test is running");
+        logger.debug("Creating method stubs: checkTimeInBD");
         Mockito.when(bookingService.checkTimeInBD(any(), any())).thenReturn(false);
-        logger.debug("Заглушка для метода: checkTimeInBD - создана");
+        logger.debug("Method stub: checkTimeInBD - has created");
         assertThrows(CantBookException.class, () -> bookingService.book(user, from, to));
 
         verify(bookingService).checkTimeInBD(from, to);
